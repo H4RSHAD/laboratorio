@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    <form action="/" method="POST">
+        <input type="number" name="CI" placeholder="Carnet de identidad">
+        <input type="text" name="Nombre" placeholder="Nombre">
+        <input type="text" name="ApellidoP" placeholder="Apellido Paterno">
+        <input type="text" name="ApellidoM" placeholder="Apellido Materno"> 
+        <input type="number" name="Telefono" placeholder="Telefono">
+        <input type="email" name="Correo" placeholder="Correo electronico">
+        <input type="date" name="Fecha_Nacimiento" placeholder="Fecha Nacimiento">
+        <button type="submit">
+            Registrar
+        </button>
+    </form>
+
+    {% for persona in data %}
+        {{persona.1}} 
+        <form action="/delete/persona/{{persona.0}}" method="POST">
+            <button>
+                Eliminar
+            </button>
+        </form>        
+    {% endfor %}
+
+    {% endblock %}
